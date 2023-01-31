@@ -13,24 +13,24 @@ export default class CommentController {
     async getComment(commentId) {
         var response = await GetComment(commentId, this.commentRepository);
         if (response == null) return new ResponseDto("bad request", null, 400);
-        return new ResponseDto("", response, 200);
+        return new ResponseDto("Success!", response, 200);
     }
 
     async deleteComment(commentId) {
         var response = await DeleteComment(commentId, this.commentRepository);
         if (response == null) return new ResponseDto("bad request", null, 400);
-        return new ResponseDto("", response, 200);
+        return new ResponseDto(`Comment with id: ${commentId} is deleted`, response, 200);
     }
 
     async listComments(postId) {
         var response = await ListComments(postId, this.commentRepository);
         if (response == null) return new ResponseDto("bad request", null, 400);
-        return new ResponseDto("", response, 200);
+        return new ResponseDto("Success!", response, 200);
     }
 
     async createComment(req) {
         var response = await CreateComment(req, this.commentRepository);
         if (response == null) return new ResponseDto("bad request", null, 400);
-        return new ResponseDto("", response, 200);
+        return new ResponseDto("Comment is created", response, 200);
     }
 }

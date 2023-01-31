@@ -8,14 +8,14 @@ const commentRouter = ({ commentRepository }) => {
 
     router.route('/')
         .get(async function (req, res) {
-            var result = await commentController.listComments(req.params.postId);
+            var result = await commentController.listComments(req.body.postId);
             res.status(result.statusCode).send(result)
         })
         .post(async function (req, res) {
             var result = await commentController.createComment({
                 id: req.body.id,
                 commentContent: req.body.commentContent,
-                postId: req.params.postId,
+                postId: req.body.postId,
                 personId: req.body.personId
             });
             res.status(result.statusCode).send(result)

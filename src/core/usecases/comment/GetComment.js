@@ -5,9 +5,9 @@ export default async (commentId, commentRespository) => {
     if(comment != null) {
         return new CommentDto(
             comment.id,
-            comment.content,
-            comment.postId,
-            comment.personId
+            comment.comment_content,
+            comment.post_id,
+            comment.person_id
         )
     };
     return null;
